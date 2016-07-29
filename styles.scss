@@ -1,0 +1,145 @@
+$breakpoint: 890px;
+
+
+
+.vertical-align {
+  position: absolute;
+
+  margin-top:30%
+}
+
+
+
+h2 {
+  font-weight: bold;
+  line-height: 40px;
+  font-size: 20px;
+}
+
+h3 {
+  font-weight: bold;
+  line-height: 36px;
+  font-size: 18px;
+}
+
+h4 {
+  font-weight: bold;
+  line-height: 30px;
+  font-size: 15px;
+}
+
+
+
+// wraps the whole page below the header to add margins
+.container {
+
+
+  @media screen and (min-width: $breakpoint) {
+    max-width: 990px;
+    margin: 5px 50px;
+  }
+
+  @media screen and (max-width: $breakpoint) {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+
+// basic styling for elements div
+
+aside, footer, header, article {
+  min-height: 40px;
+  border: 1px solid black;
+  background-color: #98d8ea;
+  float: left;
+  padding: 15px;
+  margin-bottom: 15px;
+
+
+  // so padding doesn't add to my brilliantly-constructed widths!
+  box-sizing: border-box;
+}
+
+
+// unparented header spills out across whole screen
+header {
+  width: 100%;
+
+  margin-left: 0;
+  padding: none;
+  background-color: #f7f96b;
+}
+
+aside {
+  width: 25%;
+  min-height: 500px;
+  float: left;
+  background-color: pink;
+  position: relative; //vertical align; relative
+  text-align: center;
+
+  //any direct child div
+  & > div {
+    width: 100%;
+    padding: 15px;
+    line-height: 36px;
+    box-sizing: border-box;
+  }
+
+  img {
+    width: 150px;
+    height: 150px;
+    border: 2px solid blue;
+  }
+
+
+  //make this element vanish at small sizes
+  @media screen and (max-width: $breakpoint) {
+    display: none;
+  }
+
+}
+
+// contains everything but the top-line header and the ad aside
+main {
+  width: 74%;
+  float: right;
+
+  header {
+    background-color: #6ad871;
+  }
+
+  header, footer {
+
+    clear: both;
+    width: 100%;
+
+    // only rounded corners at larger sizes
+    @media screen and (min-width: $breakpoint) {
+      border-radius: 25px;
+    }
+  }
+
+  @media screen and (max-width: $breakpoint) {
+    width: 100%;
+  }
+}
+
+article {
+  width: 30%;
+  margin: 1%;
+  background-color: #888;
+
+  @media screen and (max-width: $breakpoint) {
+    width: 48%;
+  }
+}
+
+
+// just that third article that spans twice as wide
+.mobile-wide {
+  @media screen and (max-width: $breakpoint) {
+    width: 98%;
+  }
+}
